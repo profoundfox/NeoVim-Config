@@ -64,14 +64,10 @@ local opts = {}
 
 require("lazy").setup(plugins, opts)
 
-local opts = {}
-
-require("lazy").setup(plugins, opts)
-
 local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 vim.keymap.set('n', '<C-f>', builtin.live_grep, {})
-vim.keymap.set('n', '<C-g>', ':Neotree <CR>', {})
+vim.keymap.set('n', '<C-n>', ':Neotree <CR>', {})
 
 require("gruvbox").setup()
 vim.cmd.colorscheme "gruvbox"
