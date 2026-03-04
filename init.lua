@@ -1,13 +1,3 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
-
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.cindent = true
-
-vim.g.mapleader = " "
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -16,58 +6,10 @@ if not vim.loop.fs_stat(lazypath) then
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
     "--branch=stable", -- latest stable release
-    lazypath,
+    lazypath,vim
 })
-end
+ end
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {
-  { "ellisonleao/gruvbox.nvim", priority = 1000 },
-
-  {
-    "nvim-telescope/telescope.nvim",
-    version = "*",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    },
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    opts = {
-      ensure_installed = { "lua", "c_sharp", "python" },
-      highlight = { enable = true },
-      indent = { enable = true },
-    }
-  },
-  {
-    'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    config = true
-    -- use opts = {} for passing setup options
-    -- this is equivalent to setup({}) function
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "nvim-tree/nvim-web-devicons",
-    }
-  },
-}
-
-local opts = {}
-
-require("lazy").setup(plugins, opts)
-
-local builtin = require("telescope.builtin")
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-vim.keymap.set('n', '<C-f>', builtin.live_grep, {})
-vim.keymap.set('n', '<C-n>', ':Neotree <CR>', {})
-
-require("gruvbox").setup()
-vim.cmd.colorscheme "gruvbox"
+require("vim-options")
+require("lazy").setup("plugins")
