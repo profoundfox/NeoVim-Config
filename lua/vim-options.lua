@@ -7,7 +7,12 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.cindent = true
 
+vim.opt.hlsearch = true
+
 vim.keymap.set("v", "<leader>d", '"_d')
+
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<CR>", "<cmd>nohlsearch<CR>")
 
 vim.cmd("set clipboard=unnamedplus")
 
