@@ -8,5 +8,6 @@ return {
   },
   config = function()
     vim.keymap.set('n', '<C-n>', ':Neotree <CR>', {})
-  end
+    vim.keymap.set('n', '<C-c>', ':Neotree close <CR>', {})
+  end 
 }

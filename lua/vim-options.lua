@@ -7,6 +7,8 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.cindent = true
 
+vim.keymap.set("v", "<leader>d", '"_d')
+
 vim.cmd("set clipboard=unnamedplus")
 
 vim.g.mapleader = " "
