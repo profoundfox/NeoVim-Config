@@ -1,29 +1,18 @@
-return{
-  {
-    "nvim-telescope/telescope.nvim",
-    version = "*",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    },
-    config = function()
-      local builtin = require("telescope.builtin")
-      vim.keymap.set('n', 'P', builtin.find_files, {})
-      vim.keymap.set('n', 'F', builtin.live_grep, {})
-    end
+return {
+  "nvim-telescope/telescope.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-    config = function()
-      require("telescope").setup {
-        extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown {
-            }
-          }
-        }
-      }
-      require("telescope").load_extension("ui-select")
-    end
-  }
+
+  opts = function()
+    local builtin = require("telescope.builtin")
+
+    vim.keymap.set("n", "<C-e>", builtin.find_files, { desc = "Find files" })
+    vim.keymap.set("n", "<C-l>", builtin.live_grep, { desc = "Live grep" })
+    vim.keymap.set("n", "<C-g>", builtin.git_files, {})
+    vim.keymap.set("n", "<C-d>", builtin.diagnostics, { desc = "Code diagnostics" })
+
+    return {}
+  end,
 }
