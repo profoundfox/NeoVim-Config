@@ -9,6 +9,8 @@ vim.opt.cindent = true
 
 vim.opt.hlsearch = true
 
+vim.o.winborder = "rounded"
+
 vim.keymap.set("v", "<leader>d", '"_d')
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")

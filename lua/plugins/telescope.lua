@@ -8,10 +8,11 @@ return {
   opts = function()
     local builtin = require("telescope.builtin")
 
-    vim.keymap.set("n", "<C-e>", builtin.find_files, { desc = "Find files" })
-    vim.keymap.set("n", "<C-l>", builtin.live_grep, { desc = "Live grep" })
-    vim.keymap.set("n", "<C-g>", builtin.git_files, {})
-    vim.keymap.set("n", "<C-d>", builtin.diagnostics, { desc = "Code diagnostics" })
+    vim.keymap.set("n", "<M-f>", builtin.find_files, { desc = "Find files" })
+    vim.keymap.set("n", "<M-g>", builtin.live_grep, { desc = "Live grep" })
+    vim.keymap.set("n", "<M-d>", builtin.diagnostics, { desc = "Code diagnostics" })
+
+    vim.keymap.set("n", "<M-s>", builtin.treesitter, { desc = "Treesitter symbols" })
 
     return {}
   end,
