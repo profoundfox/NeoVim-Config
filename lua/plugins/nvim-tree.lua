@@ -20,7 +20,6 @@ return {
 
             return {
               relative = "editor",
-              border = "rounded",
               width = width,
               height = height,
               row = math.floor((vim.o.lines - height) / 2),
