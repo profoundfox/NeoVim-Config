@@ -8,7 +8,7 @@ return {
       "L3MON4D3/LuaSnip",    
       "saadparwaiz1/cmp_luasnip", 
     },
-    config = function()
+    opts = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
 

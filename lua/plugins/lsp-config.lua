@@ -6,7 +6,6 @@ return {
     end
   },
   {
-    
     "mason-org/mason-lspconfig.nvim",
     dependencies = {
         { "mason-org/mason.nvim", opts = {} },
@@ -15,7 +14,7 @@ return {
     },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "csharp_ls", "rust_analyzer" }
+        ensure_installed = { "lua_ls", "csharp_ls", "rust_analyzer", "basedpyright" }
       })
     end
   },
@@ -28,6 +27,7 @@ return {
         "lua_ls",
         "csharp_ls",
         "rust_analyzer",
+        "basedpyright"
       }, {
         capabilities = capabilities
       })
@@ -40,7 +40,6 @@ return {
       vim.keymap.set('n', 'gl', vim.diagnostic.open_float, { desc = "Show line diagnostics" })
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
       vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
-      
       vim.keymap.set('n', 'cs', ':CsWarmup <CR>', {})
 
       vim.api.nvim_create_user_command("CsWarmup", function()
